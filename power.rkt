@@ -1,0 +1,7 @@
+(define (power n m)
+  (define (power-iter base m val)
+    (cond ((= m 0) val)
+          ((= (remainder m 2) 0)
+           (power-iter (* base base) (quotient m 2) val))
+          (else (power-iter (* base base) (quotient m 2) (* base val)))))
+  (power-iter n m 1))
